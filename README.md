@@ -117,3 +117,45 @@ Inside the `ModelTrainer` class, I did the following:
 5️⃣ **Final evaluation:** I predict on the test set and calculate the R² score to confirm the model’s performance.
 
 **In short:** This module **automates model training, evaluation, and storage**, making the pipeline **modular, reproducible, and production-ready**.
+
+
+## Step 6 - Building Predict Pipeline and Flask App
+
+#### Flask Web Application for Real-Time Student Score Prediction
+
+I built a Flask-based web application to make the trained student score prediction model interactive and production-ready.
+
+## 1️⃣ `app.py` – The Flask Application
+- Created a Flask app with two routes:
+  - `'/'` → Home page.
+  - `'/predictdata'` → Handles form submissions for predicting student scores.
+- Collected user input from the HTML form using `request.form.get()`.
+- Converted the input into a structured `CustomData` object.
+- Passed the input data to the `PredictPipeline` for prediction.
+- Rendered the prediction results back on the web page.
+
+## 2️⃣ `predict_pipeline.py` – Prediction Logic
+- Created two classes:
+  - **`CustomData`**  
+    - Encapsulates a single prediction data point.
+    - Converts user input into a Pandas DataFrame compatible with the model.
+  - **`PredictPipeline`**  
+    - Loads the trained model and preprocessor (`model.pkl` and `preprocessor.pkl`).
+    - Applies preprocessing to the input data.
+    - Returns predictions.
+
+- Ensures consistency by using the same preprocessing steps as during model training.
+
+## 3️⃣ Workflow
+1. User enters student details in the web form.
+2. Flask app collects input and converts it into a DataFrame via `CustomData`.
+3. Data is preprocessed and passed to the trained model through `PredictPipeline`.
+4. Model predicts the score.
+5. Predicted results are displayed on the web page.
+
+## ✅ Key Points
+- Separation of concerns: web interface vs. ML pipeline logic.
+- Reuse of trained model and preprocessor ensures prediction consistency.
+- Structured and modular design allows easy maintenance and upgrades.
+- Enables real-time, interactive prediction for end users.
+
