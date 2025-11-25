@@ -1,5 +1,37 @@
 # End - to - End ML project
 
+
+### Installation & Setup
+
+1. **Clone the repository**
+```bash
+git clone https://github.com/Vineetnaik1611/ML-Pipeline-Architecture.git
+cd ML-Pipeline-Architecture
+```
+2. **Set up virtual environment**
+```bash
+python -m venv venv
+source venv/Scripts/activate
+```
+3. **Install dependencies**
+```bash
+pip install -r requirements.txt
+```
+
+4. **Start the Flask web application**
+```bash
+python app.py
+```
+
+5. ***Access the web interface***
+
+```text
+Open http://localhost:5000 in your browser
+```
+
+
+
+
 ## Step 1 -  Python Environment Setup, Industry Project Configuration And Package Management
 
 Set up a professional-grade Python project structure that's ready for serious development!
